@@ -27,7 +27,7 @@ header {
     align-items: center;
 }
 
-.logo {
+.headerContent a {
     margin-left: 10%;
 }
 
@@ -35,6 +35,10 @@ header {
     display: flex;
     justify-content: space-between;
     margin-left: 40%;
+}
+
+.iconsHeader box-icon:hover {
+    cursor: pointer;
 }
 
 
@@ -72,11 +76,15 @@ header {
     transition: all 0.1s ease 0s;
 }
 
+
+.burger:hover {
+    cursor: pointer;
+}
 .burger::before { top: 17%}
 .burger::after {bottom: 15%}
 
-.burger:hover::before { top: 13%}
-.burger:hover::after {bottom: 10%}
+.burger:hover::before {top: 13%;}
+.burger:hover::after {bottom: 10%;}
 
 .burger.active span { transform: scale(0);}
 
