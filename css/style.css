@@ -171,7 +171,6 @@ header {
         display: flex;
         flex-direction: column-reverse;
         margin-top: 30%;
-        margin-bottom: 30%;
     }
     .ringMainSection a, .ringMainSection::before{margin-left: 20px;}
 }
