@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-html {
+body {
     width: 100%;
     height: 100%;
 }
@@ -230,13 +230,11 @@ header {
 .firstSection {
     width: 100%;
     height: auto;
-    margin-top: 4.5%;
+    margin-top: 20px;
 }
 
 @media (max-width: 430px) {
-    .firstSection {
-        margin-top: 25%;
-    }
+    .firstSection{margin-top: 10px;}
 }
 
 .genderSection {
@@ -307,4 +305,131 @@ header {
     .genderSection img {
         width: 100vw;
     }
+}
+
+/*Section for search nearst shop*/
+.mapSection {
+    width: 100%;
+    height: 60vh;
+    margin-top: 20px;
+    display: flex;
+    background-color: #272727;
+    justify-content: space-between;
+}
+
+@media (max-width:430px) {
+    .mapSection {
+        flex-direction: column;
+        margin-top: 10px;
+        height: 80vh;
+    }
+}
+
+.descriptionMapSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15%;
+}
+
+@media (max-width: 430px){
+    .descriptionMapSection {margin-top: 15px;}
+}
+
+.descriptionMapSection p {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: lighter;
+    font-size: 50px;
+    color: rgb(240, 240, 240);
+}
+
+.descriptionMapSection span {
+    margin: 2em 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: rgb(175, 175, 175);
+}
+
+@media (max-width:430px) {
+    .descriptionMapSection span{ margin: 20px 0px}
+}
+
+.inputFieldMap {
+    position: relative;
+}
+
+.inputFieldMap input{
+    width: 20vw;
+    height: 5vh;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: #272727;
+}
+
+@media (max-width: 430px){
+    .inputFieldMap input {
+        width: 80%;
+        height: 5hv;
+    }
+}
+
+.inputFieldMap box-icon {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0.5em;
+    left: 22em;
+    transition: left 800ms;
+}
+
+@media (max-width: 430px){
+    .inputFieldMap box-icon {
+        left: 75%;
+    }
+}
+
+.inputFieldMap box-icon:hover{
+    left: 76%;
+}
+
+@media (max-width: 430px){
+    .inputFieldMap box-icon:hover {
+        left: 75%;
+    }
+    .inputFieldMap box-icon:active {
+        left: 78%;
+    }
+}
+
+.map {
+    width: 38%;
+    height: 100%;
+    margin-right: 12%;
+}
+
+@media (max-width: 430px) {
+    .map {
+        width: 90%;
+        height: 90%;
+        margin: 25px 25px 25px 20px;
+    }
+}
+
+[class*="copyrights-pane"] {
+    display: none !important;
+}
+
+[class*="ground-pane"] {
+    filter: grayscale(1);
+}
+
+#map {
+    filter: invert(1) hue-rotate(180deg) brightness(0.8) contrast(0.8);
+}
+
+#map img {
+    filter: invert(1) hue-rotate(180deg);
 }
