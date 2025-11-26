@@ -175,6 +175,15 @@ header {
     .ringMainSection a, .ringMainSection::before{margin-left: 20px;}
 }
 
+@media (max-width: 375px) {
+    .ringMainSection{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 10%;
+    }
+    .ringMainSection a, .ringMainSection::before{margin-left: 20px;}
+}
+
 .discriptionMainSection {
     display: flex;
     justify-content: space-between;
