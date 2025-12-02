@@ -441,3 +441,16 @@ header {
 #map img {
     filter: invert(1) hue-rotate(180deg);
 }
+
+/*Section assortment*/
+.assortment {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.jowsRing {
+    margin
+}
