@@ -173,6 +173,7 @@ header {
         margin-top: 30%;
     }
     .ringMainSection a, .ringMainSection::before{margin-left: 20px;}
+    .ringCartierMain {width: 65%;}
 }
 
 @media (max-width: 375px) {
@@ -445,12 +446,103 @@ header {
 /*Section assortment*/
 .assortment {
     width: 100%;
+    margin-top: 10px;
     height: auto;
-    margin-top: 20px;
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
-.jowsRing {
-    margin
+.jowsRing,
+.croixRing,
+.femaleNecklace,
+.earringMoon,
+.earringWin {
+    position: relative;
+    margin-inline: 10px;
+    margin-bottom: 20px;
+}
+
+.femaleNecklace {
+    margin-top: 2.5px;
+}
+
+.jowsRing a,
+.croixRing a,
+.earringMoon a,
+.earringWin a {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    left: 6%;
+    top: 75%;
+    text-decoration: none;
+    color: rgb(211, 210, 210);
+}
+
+.femaleNecklace a {
+    position: absolute;
+    left: 6%;
+    top: 88%;
+    text-decoration: none;
+    color: rgb(211, 210, 210);
+}
+
+.ring h2,
+.Nl h2,
+.earring h2 {
+    color: rgb(75, 75, 75);
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.ring span,
+.Nl span,
+.earring span {
+    color: rgb(187, 187, 187);
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.ring p,
+.Nl p,
+.earring p {
+    color: rgb(212, 169, 48);
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+@media (max-width:430px) {
+    .assortment {
+        flex-direction: column;
+        margin-top: 15px;
+        margin-left: 5px;
+        width: 93vw;
+    }
+    .femaleNecklace, 
+    .assortment img {
+        width: 93vw;
+    }
+    .femaleNecklace a {
+        top: 80%;
+    }
+}
+
+@media (max-width: 414px) {
+    .assortment {
+        margin-left: 5px;
+        margin-top: 15px;
+        width: 93vw;
+    }
+    .assortment img {
+        width: 93vw;
+    }
+}
+
+@media (max-width: 375px) {
+    .jowsRing a,
+    .croixRing a,
+    .earringMoon a,
+    .earringWin a {top: 70%}
 }
