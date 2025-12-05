@@ -584,7 +584,7 @@ header {
 }
 
 .slider {
-    width: 80vw;
+    width: 100vw;
     margin-top: 5%;
     display: flex;
     overflow-x: auto;
