@@ -29,16 +29,15 @@ const images = [
     "images/slide@5.jpg",
 ]
 
-const slide = document.querySelector("slide");
-const prevBtn = document.querySelector("bx-arrow-back");
-const nextBtn = document.querySelector("bx-flip-horizontal");
+const slide = document.querySelector(".slide");
+const prevBtn = document.querySelector(".bx-arrow-back");
+const nextBtn = document.querySelector(".bx-flip-horizontal");
 
 const setupSlides = () => {
     images.forEach((imageLink, index) => {
         const img = document.createElement("img");
         img.src = imageLink;
         img.dataset.index = index;
-
         slide.appendChild(img);
     })
 }
