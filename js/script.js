@@ -27,19 +27,60 @@ const images = [
     "images/slide@3.jpg",
     "images/slide@4.jpg",
     "images/slide@5.jpg",
-]
+];
+
+let currentIndex = 0;
 
 const slide = document.querySelector(".slide");
 const prevBtn = document.querySelector(".bx-arrow-back");
 const nextBtn = document.querySelector(".bx-flip-horizontal");
 
 const setupSlides = () => {
-    images.forEach((imageLink, index) => {
+    images.forEach((imageLink) => {
         const img = document.createElement("img");
         img.src = imageLink;
-        img.dataset.index = index;
+        img.classList.add('image');
         slide.appendChild(img);
     })
-}
+};
 
 setupSlides();
+setupSlides();
+
+
+const initSlider = () => {
+    const sliderWidth = slide.firstElementChild.offsetWidth;
+    slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+};
+
+nextBtn.addEventListener("click", () => {
+    const sliderWidth = slide.firstElementChild.offsetWidth;
+    currentIndex++;
+    slide.style.transition = `translate 0.5s ease-in-out`;
+    slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+    if (currentIndex >= images.length) {
+        nextBtn.style.pointerEvents = 'none';
+    };
+    slide.addEventListener("transitionend", () => {
+        if (currentIndex >= (images.length)) {
+            currentIndex = 0;
+            slide.style.transition = "none";
+            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+            nextBtn.style.pointerEvents = 'auto';
+        };
+    }, {once : true});
+});
+
+prevBtn.addEventListener("click", () => {
+    const sliderWidth = slide.firstElementChild.offsetWidth;
+    currentIndex--;
+    slide.style.transition = `translate 0.5s ease-in-out`;
+    slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+    slide.addEventListener("transitionend", () => {
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+            slide.style.transition = "none";
+            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+        };
+    }, {once : true});
+});
