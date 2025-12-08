@@ -34,6 +34,7 @@ let currentIndex = 0;
 const slide = document.querySelector(".slide");
 const prevBtn = document.querySelector(".bx-arrow-back");
 const nextBtn = document.querySelector(".bx-flip-horizontal");
+const btnList = document.querySelector(".btnList");
 
 const setupSlides = () => {
     images.forEach((imageLink) => {
@@ -43,15 +44,23 @@ const setupSlides = () => {
         slide.appendChild(img);
     })
 };
-
 setupSlides();
 setupSlides();
-
 
 const initSlider = () => {
     const sliderWidth = slide.firstElementChild.offsetWidth;
     slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
 };
+
+
+const parentDotsList = document.querySelector(".btnList");
+let childrensDots = parentDotsList.children;
+let childrensDotsArray = Object.values(childrensDots);
+console.log(childrensDotsArray);
+
+
+
+
 
 nextBtn.addEventListener("click", () => {
     const sliderWidth = slide.firstElementChild.offsetWidth;
@@ -64,12 +73,33 @@ nextBtn.addEventListener("click", () => {
     slide.addEventListener("transitionend", () => {
         if (currentIndex >= (images.length)) {
             currentIndex = 0;
-            slide.style.transition = "none";
             slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
             nextBtn.style.pointerEvents = 'auto';
         };
     }, {once : true});
+    function updateActiveButton(index) {
+        if(index >= (childrensDotsArray.length)) {
+            currentIndex = 0;
+            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+            nextBtn.style.pointerEvents = 'auto';
+            childrensDotsArray[0].classList.add("styleDotButton");
+            childrensDotsArray[index - 1].classList.remove("styleDotButton")
+        } else { 
+        childrensDotsArray[index].classList.add("styleDotButton");
+        childrensDotsArray[index].previousElementSibling.classList.remove("styleDotButton");
+        };
+    };
+    function nextSlide() {
+        updateActiveButton(currentIndex);
+    };
+        nextSlide();
 });
+
+
+childrensDotsArray[0].classList.add("styleDotButton");
+
+
+
 
 prevBtn.addEventListener("click", () => {
     const sliderWidth = slide.firstElementChild.offsetWidth;
@@ -79,8 +109,27 @@ prevBtn.addEventListener("click", () => {
     slide.addEventListener("transitionend", () => {
         if (currentIndex < 0) {
             currentIndex = images.length - 1;
-            slide.style.transition = "none";
             slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
         };
     }, {once : true});
+    function updateActiveButton(index) {
+        if(index < 0) {
+            currentIndex = childrensDotsArray.length - 1;
+            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+            nextBtn.style.pointerEvents = 'auto';
+            childrensDotsArray[0].classList.remove("styleDotButton");
+            childrensDotsArray[currentIndex].classList.add("styleDotButton")
+        } else { 
+            childrensDotsArray[index].classList.add("styleDotButton");
+            childrensDotsArray[index].nextElementSibling.classList.remove("styleDotButton");
+        };
+};
+        function prevSlide() {
+        updateActiveButton(currentIndex);
+    };
+    prevSlide()
 });
+
+
+
+

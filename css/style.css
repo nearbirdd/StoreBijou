@@ -257,10 +257,10 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-inline: 11.7%;
+    margin-inline: 12%;
 }
 
-@media (min-width:1024px) {
+@media (max-width:1024px) {
     .genderSection {
         margin-inline: 40px;
     }
@@ -658,11 +658,11 @@ header {
 
 
 
-#oneBtn,
-#twoBtn,
-#threeBtn,
-#fourBtn,
-#fiveBtn {
+.oneBtn,
+.twoBtn,
+.threeBtn,
+.fourBtn,
+.fiveBtn {
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -670,8 +670,7 @@ header {
     background-color: #949494;
 }
 
-.styleDotButton,
-#oneBtn {
+.styleDotButton {
     width: 10px;
     height: 10px;
     border-radius: 50%;
