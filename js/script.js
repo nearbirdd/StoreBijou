@@ -29,8 +29,6 @@ const images = [
     "images/slide@5.jpg",
 ];
 
-let currentIndex = 0;
-
 const slide = document.querySelector(".slide");
 const prevBtn = document.querySelector(".bx-arrow-back");
 const nextBtn = document.querySelector(".bx-flip-horizontal");
@@ -43,93 +41,83 @@ const setupSlides = () => {
         img.classList.add('image');
         slide.appendChild(img);
     })
-};
-setupSlides();
-setupSlides();
 
-const initSlider = () => {
-    const sliderWidth = slide.firstElementChild.offsetWidth;
-    slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
+    // const firstClone = slide.firstElementChild.cloneNode(true);
+    // const lastClone = slide.firstElementChild.cloneNode(true);
+    // slide.appendChild(firstClone);
+    // slide.insertBefore(lastClone, slide.firstChild);
 };
+setupSlides();
+setupSlides();
+setupSlides();
+setupSlides();
 
 
 const parentDotsList = document.querySelector(".btnList");
 let childrensDots = parentDotsList.children;
 let childrensDotsArray = Object.values(childrensDots);
-console.log(childrensDotsArray);
-
-
-
-
-
-nextBtn.addEventListener("click", () => {
-    const sliderWidth = slide.firstElementChild.offsetWidth;
-    currentIndex++;
-    slide.style.transition = `translate 0.5s ease-in-out`;
-    slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
-    if (currentIndex >= images.length) {
-        nextBtn.style.pointerEvents = 'none';
-    };
-    slide.addEventListener("transitionend", () => {
-        if (currentIndex >= (images.length)) {
-            currentIndex = 0;
-            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
-            nextBtn.style.pointerEvents = 'auto';
-        };
-    }, {once : true});
-    function updateActiveButton(index) {
-        if(index >= (childrensDotsArray.length)) {
-            currentIndex = 0;
-            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
-            nextBtn.style.pointerEvents = 'auto';
-            childrensDotsArray[0].classList.add("styleDotButton");
-            childrensDotsArray[index - 1].classList.remove("styleDotButton")
-        } else { 
-        childrensDotsArray[index].classList.add("styleDotButton");
-        childrensDotsArray[index].previousElementSibling.classList.remove("styleDotButton");
-        };
-    };
-    function nextSlide() {
-        updateActiveButton(currentIndex);
-    };
-        nextSlide();
-});
-
-
 childrensDotsArray[0].classList.add("styleDotButton");
 
+let currentIndex = 0;
 
-
-
-prevBtn.addEventListener("click", () => {
-    const sliderWidth = slide.firstElementChild.offsetWidth;
-    currentIndex--;
-    slide.style.transition = `translate 0.5s ease-in-out`;
-    slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
-    slide.addEventListener("transitionend", () => {
-        if (currentIndex < 0) {
-            currentIndex = images.length - 1;
-            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
-        };
-    }, {once : true});
-    function updateActiveButton(index) {
-        if(index < 0) {
-            currentIndex = childrensDotsArray.length - 1;
-            slide.style.translate = `-${sliderWidth * (currentIndex + 1)}px`;
-            nextBtn.style.pointerEvents = 'auto';
-            childrensDotsArray[0].classList.remove("styleDotButton");
-            childrensDotsArray[currentIndex].classList.add("styleDotButton")
-        } else { 
-            childrensDotsArray[index].classList.add("styleDotButton");
-            childrensDotsArray[index].nextElementSibling.classList.remove("styleDotButton");
-        };
-};
-        function prevSlide() {
-        updateActiveButton(currentIndex);
+function nextActiveButton() {
+    childrensDotsArray[currentIndex].classList.remove("styleDotButton");
+    currentIndex++;
+    if(currentIndex >= childrensDotsArray.length) {
+        currentIndex = 0;
     };
-    prevSlide()
+    childrensDotsArray[currentIndex].classList.add("styleDotButton");
+}
+
+function prevActiveButton() {
+    childrensDotsArray[currentIndex].classList.remove("styleDotButton");
+    currentIndex--;
+    if(currentIndex < 0) {
+        currentIndex = childrensDotsArray.length - 1;
+    };
+    childrensDotsArray[currentIndex].classList.add("styleDotButton");
+};
+
+function nextSlide () {
+    nextActiveButton();
+    slide.scrollBy({
+        left: 130,
+    });
+    if (slide.scrollLeft >= slide.scrollWidth / 2) {
+        setTimeout(() => {
+            const slides = document.querySelectorAll('.slide img');
+            slide.style.scrollBehavior = 'auto';
+            slide.scrollLeft = slides[1].offsetLeft;
+            slide.style.scrollBehavior = 'smooth';
+        }, 300)};
+};
+
+function prevSlide () {
+    prevActiveButton();
+    slide.scrollBy({
+        left: -130,
+    });
+    if (slide.scrollLeft <= 390) {
+        setTimeout(() => {
+            const slides = document.querySelectorAll('.slide img');
+            slide.style.scrollBehavior = 'auto';
+            slide.scrollLeft = slides[14].offsetLeft;
+            slide.style.scrollBehavior = 'smooth';
+        }, 350)};
+};
+
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+
+window.addEventListener('load', () => {
+    const slides = document.querySelectorAll('.slide img');
+    if (slides.length >= 3) {
+        slide.scrollLeft = slides[10].offsetLeft;
+    }
 });
 
-
-
-
+function autoScroll() {
+    nextSlide();
+    setTimeout(autoScroll, 3000);
+}
+autoScroll();

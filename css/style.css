@@ -19,7 +19,6 @@ header {
 .headerStore {
     width: 100%;
     padding-top: 70px;
-
 }
 
 .headerContent {
@@ -572,45 +571,47 @@ header {
 }
 
 .container {
+    width: 75vw;
     margin-top: 5%;
+    /* display: flex; */
 }
 
 .container h3{
     color: white;
     font-size: 50px;
     font-weight: lighter;
-    margin-left: 5%;
+    margin-left: 2.5%;
 }
 
 .slider {
-    width: 98vw;
+    width: 100%;
     margin-top: 5%;
     display: flex;
-    overflow-x: auto;
+    justify-content: center;
 }
 
 .slide {
-    width: 99vw;
     display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-align: center;
+    scroll-snap-type: x mandatory;
 }
 
-.slider::-webkit-scrollbar {
+.slide::-webkit-scrollbar {
     display: none;
 }
 
 .slide img {
-    height: 38vh;
-    margin-inline: 5px;
+    scroll-snap-align: center;
+    height: 40vh;
+    margin-inline: 15px;
 }
-
-/* .image {
-
-} */
 
 .navigationSlider {
     margin-top: 5%;
-    margin-right: 13%;
-    margin-left: 15%;
+    margin-right: 5%;
+    margin-left: 11%;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -623,9 +624,9 @@ header {
 }
 
 .linkSocialNetwork a {
-    width: 35px;
-    height: 35px;
-    margin-inline: 5px;
+    width: 36px;
+    height: 36px;
+    margin-inline: 10px;
     text-decoration: none;
     display: flex;
     justify-content: center;
