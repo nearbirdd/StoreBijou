@@ -256,7 +256,7 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-inline: 12%;
+    margin-inline: 12.2%;
 }
 
 @media (max-width:1024px) {
@@ -373,6 +373,8 @@ header {
 
 @media (max-width:430px) {
     .descriptionMapSection span{ margin: 20px 0px}
+    .descriptionMapSection p {font-size: 40px;}
+    .descriptionMapSection {margin-left: 10%;}
 }
 
 .inputFieldMap {
@@ -459,23 +461,36 @@ header {
 .assortment {
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 10px;
     height: auto;
     display:flex;
     justify-content: center;
 }
 
 .jowsRing,
-.croixRing,
-.femaleNecklace,
-.earringMoon,
-.earringWin {
+.earringMoon {
     position: relative;
     margin-inline: 10px;
     margin-bottom: 20px;
 }
 
+.croixRing,
+.earringWin {
+    position: relative;
+    margin-inline: 10px;
+}
+
 .femaleNecklace {
+    position: relative;
     margin-top: 2.5px;
+    margin-inline: 10px;
+}
+
+@media (max-width: 430px) {
+    .femaleNecklace {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 }
 
 .jowsRing a,
@@ -565,7 +580,6 @@ header {
     justify-content: center;
     width: 100%;
     height: 96vh;
-    margin-top: 20px;
     margin-bottom: 20px;
     background-color: #272727;
 }
@@ -583,11 +597,31 @@ header {
     margin-left: 2.5%;
 }
 
+@media (max-width: 430px) {
+    .container {
+        width: 90vw;
+        margin-top: 25%;
+    }
+    .container h3 {font-size: 30px;}
+}
+
+@media (max-width: 375px) {
+    .container {
+        width: 100vw;
+        margin-top: 15%;
+    }
+    .container h3 {font-size: 30px;}
+}
+
 .slider {
     width: 100%;
     margin-top: 5%;
     display: flex;
     justify-content: center;
+}
+
+@media (max-width: 430px) {
+    .slider {margin-top: 20%}
 }
 
 .slide {
@@ -657,8 +691,6 @@ header {
     gap: 17px;
 }
 
-
-
 .oneBtn,
 .twoBtn,
 .threeBtn,
@@ -677,4 +709,46 @@ header {
     border-radius: 50%;
     background-color: white;
     border: 0 solid;
+}
+
+@media (max-width: 430px) {
+    .navigationSlider {
+        flex-direction: column-reverse;
+    }
+    .controlpanelSlider i {
+        display: none;
+    }
+    .controlpanelSlider {margin: 0 30px 50px 0;}
+    .linkSocialNetwork {margin-right: 100%;}
+    .linkSocialNetwork a {
+        margin: 0 20px 0 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .navigationSlider {
+        flex-direction: column-reverse;
+    }
+    .controlpanelSlider i {
+        display: none;
+    }
+    .controlpanelSlider {margin: 0 30px 50px 0;}
+    .linkSocialNetwork {margin-right: 90%;}
+    .linkSocialNetwork a {
+        margin: 0 20px 0 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .navigationSlider {
+        flex-direction: column-reverse;
+    }
+    .controlpanelSlider i {
+        display: none;
+    }
+    .controlpanelSlider {margin: 0 30px 50px 0;}
+    .linkSocialNetwork {margin-right: 80%;}
+    .linkSocialNetwork a {
+        margin: 0 20px 0 0;
+    }
 }

@@ -40,12 +40,7 @@ const setupSlides = () => {
         img.src = imageLink;
         img.classList.add('image');
         slide.appendChild(img);
-    })
-
-    // const firstClone = slide.firstElementChild.cloneNode(true);
-    // const lastClone = slide.firstElementChild.cloneNode(true);
-    // slide.appendChild(firstClone);
-    // slide.insertBefore(lastClone, slide.firstChild);
+    });
 };
 setupSlides();
 setupSlides();
@@ -60,26 +55,17 @@ childrensDotsArray[0].classList.add("styleDotButton");
 
 let currentIndex = 0;
 
-function nextActiveButton() {
-    childrensDotsArray[currentIndex].classList.remove("styleDotButton");
-    currentIndex++;
-    if(currentIndex >= childrensDotsArray.length) {
-        currentIndex = 0;
-    };
-    childrensDotsArray[currentIndex].classList.add("styleDotButton");
+function updateActiveButton(currentIndex) {
+    // Получаем положительный остаток от 0 до 4 для любых чисел
+    const dotIndex = (currentIndex % 5 + 5) % 5;
+    childrensDotsArray.forEach((dot, i) => {
+        dot.classList.toggle('styleDotButton', i === dotIndex);
+    });
 }
 
-function prevActiveButton() {
-    childrensDotsArray[currentIndex].classList.remove("styleDotButton");
-    currentIndex--;
-    if(currentIndex < 0) {
-        currentIndex = childrensDotsArray.length - 1;
-    };
-    childrensDotsArray[currentIndex].classList.add("styleDotButton");
-};
-
 function nextSlide () {
-    nextActiveButton();
+    currentIndex++;
+    updateActiveButton(currentIndex);
     slide.scrollBy({
         left: 130,
     });
@@ -90,10 +76,11 @@ function nextSlide () {
             slide.scrollLeft = slides[1].offsetLeft;
             slide.style.scrollBehavior = 'smooth';
         }, 300)};
-};
+console.log(currentIndex);};
 
 function prevSlide () {
-    prevActiveButton();
+    currentIndex--;
+    updateActiveButton(currentIndex);
     slide.scrollBy({
         left: -130,
     });
@@ -104,20 +91,28 @@ function prevSlide () {
             slide.scrollLeft = slides[14].offsetLeft;
             slide.style.scrollBehavior = 'smooth';
         }, 350)};
-};
+console.log(currentIndex);};
 
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlide);
 
-window.addEventListener('load', () => {
-    const slides = document.querySelectorAll('.slide img');
-    if (slides.length >= 3) {
-        slide.scrollLeft = slides[10].offsetLeft;
-    }
-});
+// function autoScroll() {
+//     nextSlide();
+//     setTimeout(autoScroll, 3000);
+// };
+// autoScroll();
 
-function autoScroll() {
-    nextSlide();
-    setTimeout(autoScroll, 3000);
-}
-autoScroll();
+childrensDotsArray.forEach((currentDot, index) => {
+    currentDot.addEventListener("click", () => {
+        if (index === currentIndex) return;
+        const diff = index - currentIndex;
+        const slides = document.querySelectorAll('.slide img');
+        slide.scrollTo({
+            left: slides[index].offsetLeft,
+            behavior: 'smooth'
+        });
+        updateActiveButton(index);
+        currentIndex = index;
+    });
+});
+console.log(currentIndex);
