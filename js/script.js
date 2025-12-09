@@ -96,11 +96,11 @@ console.log(currentIndex);};
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlide);
 
-// function autoScroll() {
-//     nextSlide();
-//     setTimeout(autoScroll, 3000);
-// };
-// autoScroll();
+function autoScroll() {
+    nextSlide();
+    setTimeout(autoScroll, 3000);
+};
+autoScroll();
 
 childrensDotsArray.forEach((currentDot, index) => {
     currentDot.addEventListener("click", () => {
