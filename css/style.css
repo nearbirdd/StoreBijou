@@ -798,6 +798,7 @@ header {
     font-weight: lighter;
     margin-bottom: 30%;
     color: #8a8888;
+    text-decoration: none;
 }
 
 .discInfStore input {
@@ -841,14 +842,14 @@ footer {
 @media (max-width: 430px) {
     footer {
         margin-top: 80px;
-        height: 88vh;
+        height: 95vh;
     }
 }
 
 @media (max-width: 375px) {
     footer {
         margin-top: 80px;
-        height: 105lvh;
+        height: 105vh;
     }
 }
 
@@ -939,12 +940,7 @@ footer {
     font-weight: lighter;
     color: #8a8888;
     margin-bottom: 20px;
-}
-
-@media (max-width: 430px) {
-    .contactsHotLine p{
-        margin-bottom: 20px;
-    }
+    text-decoration: none;
 }
 
 .contactsHotLine i {
