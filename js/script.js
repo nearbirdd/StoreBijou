@@ -64,9 +64,15 @@ function updateActiveButton(currentIndex) {
 function nextSlide () {
     currentIndex++;
     updateActiveButton(currentIndex);
-    slide.scrollBy({
-        left: 130,
+    if (window.matchMedia("(max-width: 430px)").matches){
+        slide.scrollBy({
+            left: 260,
     });
+    }else {
+        slide.scrollBy({
+            left: 130,
+    })
+    };
     if (slide.scrollLeft >= slide.scrollWidth / 2) {
         setTimeout(() => {
             const slides = document.querySelectorAll('.slide img');
@@ -79,9 +85,15 @@ function nextSlide () {
 function prevSlide () {
     currentIndex--;
     updateActiveButton(currentIndex);
-    slide.scrollBy({
-        left: -130,
+    if (window.matchMedia("(max-width: 430px)").matches){
+        slide.scrollBy({
+            left: -260,
     });
+    }else {
+        slide.scrollBy({
+            left: -130,
+    })
+    };
     if (slide.scrollLeft <= 390) {
         setTimeout(() => {
             const slides = document.querySelectorAll('.slide img');
