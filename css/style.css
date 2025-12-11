@@ -917,6 +917,7 @@ footer {
 }
 
 .contactsHotLine {
+    width: 90%;
     margin-left: 12%;
 }
 
@@ -943,6 +944,7 @@ footer {
 }
 
 .contactsHotLine span{
+    display: flex;
     width: 200px;
     font-size: 20px;
     font-weight: lighter;
