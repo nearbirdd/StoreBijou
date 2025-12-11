@@ -1,7 +1,19 @@
 //Burger button animation and property
 document.querySelector(".burger").addEventListener('click', function() {
     this.classList.toggle('active');
+    const header = document.querySelector("header");
+    const headerStore = document.querySelector(".headerStore");
+    headerStore.querySelector('img').src = "images/Group17.svg";
+    const burgerMenu = document.createElement("div");
+    burgerMenu.classList.add("burgerMenu");
+    burgerMenu.appendChild(headerStore);
+    header.appendChild(burgerMenu);
+    setTimeout(() => {
+    burgerMenu.style.transform = "translateY(0)";
+    burgerMenu.style.opacity = "1";
+}, 700);
 });
+
 
 //miniMap
 function init () {
@@ -66,7 +78,7 @@ function nextSlide () {
     updateActiveButton(currentIndex);
     if (window.matchMedia("(max-width: 430px)").matches){
         slide.scrollBy({
-            left: 260,
+            left: 390,
     });
     }else {
         slide.scrollBy({
@@ -87,7 +99,7 @@ function prevSlide () {
     updateActiveButton(currentIndex);
     if (window.matchMedia("(max-width: 430px)").matches){
         slide.scrollBy({
-            left: -260,
+            left: -390,
     });
     }else {
         slide.scrollBy({
