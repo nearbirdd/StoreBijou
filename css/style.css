@@ -846,6 +846,13 @@ footer {
     }
 }
 
+@media (max-width: 414px) {
+    footer {
+        margin-top: 80px;
+        height: 100dvh;
+    }
+}
+
 @media (max-width: 375px) {
     footer {
         margin-top: 80px;
@@ -935,7 +942,7 @@ footer {
     color: white;
 }
 
-.contactsHotLine p{
+.contactsHotLine span{
     font-size: 20px;
     font-weight: lighter;
     color: #8a8888;

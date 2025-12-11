@@ -32,7 +32,6 @@ const images = [
 const slide = document.querySelector(".slide");
 const prevBtn = document.querySelector(".bx-arrow-back");
 const nextBtn = document.querySelector(".bx-flip-horizontal");
-const btnList = document.querySelector(".btnList");
 
 const setupSlides = () => {
     images.forEach((imageLink) => {
@@ -56,7 +55,6 @@ childrensDotsArray[0].classList.add("styleDotButton");
 let currentIndex = 0;
 
 function updateActiveButton(currentIndex) {
-    // Получаем положительный остаток от 0 до 4 для любых чисел
     const dotIndex = (currentIndex % 5 + 5) % 5;
     childrensDotsArray.forEach((dot, i) => {
         dot.classList.toggle('styleDotButton', i === dotIndex);
@@ -76,7 +74,7 @@ function nextSlide () {
             slide.scrollLeft = slides[1].offsetLeft;
             slide.style.scrollBehavior = 'smooth';
         }, 300)};
-console.log(currentIndex);};
+};
 
 function prevSlide () {
     currentIndex--;
@@ -91,7 +89,7 @@ function prevSlide () {
             slide.scrollLeft = slides[14].offsetLeft;
             slide.style.scrollBehavior = 'smooth';
         }, 350)};
-console.log(currentIndex);};
+};
 
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", prevSlide);
@@ -115,4 +113,4 @@ childrensDotsArray.forEach((currentDot, index) => {
         currentIndex = index;
     });
 });
-console.log(currentIndex);
+
