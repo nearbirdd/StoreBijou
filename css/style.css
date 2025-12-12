@@ -14,6 +14,7 @@ header {
     width: 100%;
     height: 95vh;
     background-image: linear-gradient(90deg, white 60%, #272727 40%);
+    transition: all 1s ease;
 }
 
 .headerStore {
@@ -134,7 +135,7 @@ header {
 /*Burger menu*/
 .burgerMenu {
     width: 100%;
-    height: 95dvh;
+    height: 145dvh;
     position: absolute;
     top: 0;
     z-index: 1;
@@ -142,10 +143,11 @@ header {
     color: white;
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 1s ease;
+    transition: all 1s ease;
 }
 
 /*Main section*/
+.mainSection {transition: all 2s ease-in-out;}
 .ringMainSection {
     width: 100%;
     height: auto;
