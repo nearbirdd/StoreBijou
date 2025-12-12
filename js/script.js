@@ -1,6 +1,7 @@
 //Burger button animation and create burger menu
 document.querySelector(".burger").addEventListener('click', function() {
     this.classList.toggle('active');
+    //Create and open the burger menu
     const header = document.querySelector("header");
     const headerStore = document.querySelector(".headerStore");
     const copyHeaderStore = headerStore.cloneNode(true);
@@ -13,6 +14,7 @@ document.querySelector(".burger").addEventListener('click', function() {
         wrapperBurgerMenu.style.transform = "translateY(0)";
         wrapperBurgerMenu.style.opacity = "1";
     }, 700);
+    //Close the burger menu
     const burgerInMenu = wrapperBurgerMenu.querySelector(".burger");
     burgerInMenu.addEventListener('click', () => {
         wrapperBurgerMenu.style.transform = "translateY(-100%)";
