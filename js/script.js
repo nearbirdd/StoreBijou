@@ -1,19 +1,26 @@
-//Burger button animation and property
+//Burger button animation and create burger menu
 document.querySelector(".burger").addEventListener('click', function() {
     this.classList.toggle('active');
     const header = document.querySelector("header");
     const headerStore = document.querySelector(".headerStore");
-    headerStore.querySelector('img').src = "images/Group17.svg";
-    const burgerMenu = document.createElement("div");
-    burgerMenu.classList.add("burgerMenu");
-    burgerMenu.appendChild(headerStore);
-    header.appendChild(burgerMenu);
+    const copyHeaderStore = headerStore.cloneNode(true);
+    copyHeaderStore.querySelector('img').src = "images/Group17.svg";
+    const wrapperBurgerMenu = document.createElement("div");
+    wrapperBurgerMenu.classList.add("burgerMenu");
+    wrapperBurgerMenu.appendChild(copyHeaderStore);
+    header.prepend(wrapperBurgerMenu);
     setTimeout(() => {
-    burgerMenu.style.transform = "translateY(0)";
-    burgerMenu.style.opacity = "1";
-}, 700);
+        wrapperBurgerMenu.style.transform = "translateY(0)";
+        wrapperBurgerMenu.style.opacity = "1";
+    }, 700);
+    const burgerInMenu = wrapperBurgerMenu.querySelector(".burger");
+    burgerInMenu.addEventListener('click', () => {
+        wrapperBurgerMenu.style.transform = "translateY(-100%)";
+        wrapperBurgerMenu.style.opacity = "0";
+        wrapperBurgerMenu.remove();
+        document.querySelector(".burger").classList.remove("active");
+    });
 });
-
 
 //miniMap
 function init () {
@@ -21,15 +28,15 @@ function init () {
         center: [45.043499, 41.962087],
         zoom: 18
     });
-  map.controls.remove('geolocationControl'); // удаляем геолокацию
-  map.controls.remove('searchControl'); // удаляем поиск
-  map.controls.remove('trafficControl'); // удаляем контроль трафика
-  map.controls.remove('typeSelector'); // удаляем тип
-  map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
-  map.controls.remove('zoomControl'); // удаляем контрол зуммирования
-  map.controls.remove('rulerControl'); // удаляем контрол правил
-//   map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
-}
+    map.controls.remove('geolocationControl'); // удаляем геолокацию
+    map.controls.remove('searchControl'); // удаляем поиск
+    map.controls.remove('trafficControl'); // удаляем контроль трафика
+    map.controls.remove('typeSelector'); // удаляем тип
+    map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+    map.controls.remove('zoomControl'); // удаляем контрол зуммирования
+    map.controls.remove('rulerControl'); // удаляем контрол правил
+    //   map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
+};
 ymaps.ready(init);
 
 //Slider

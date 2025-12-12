@@ -53,7 +53,6 @@ header {
 .burger {
     display: flex;
     position: relative;
-    z-index: 50;
     align-items: center;
     justify-content: flex-end;
     width: 30px;
@@ -138,11 +137,12 @@ header {
     height: 95dvh;
     position: absolute;
     top: 0;
+    z-index: 1;
     background-color: #272727;
     color: white;
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    transition: transform 1s ease;
 }
 
 /*Main section*/
@@ -273,7 +273,7 @@ header {
     margin-inline: 12.2%;
 }
 
-@media (max-width:1024px) {
+@media (min-width:1024px) {
     .genderSection {
         margin-inline: 40px;
     }
