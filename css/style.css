@@ -1,3 +1,4 @@
+@import url(/burgerMenu/stylesBurgerMenu.css);
 * {
     /* border: 1px solid rgb(96, 211, 96); */
     margin: 0;
@@ -132,20 +133,6 @@ header {
     }
 }
 
-/*Burger menu*/
-.burgerMenu {
-    width: 100%;
-    height: 145dvh;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    background-color: #272727;
-    color: white;
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 1s ease;
-}
-
 /*Main section*/
 .mainSection {transition: all 2s ease-in-out;}
 .ringMainSection {
@@ -278,6 +265,12 @@ header {
 @media (min-width:1024px) {
     .genderSection {
         margin-inline: 40px;
+    }
+}
+
+@media (max-width: 1920px){
+    .genderSection {
+        margin-inline: 12.2%;
     }
 }
 
