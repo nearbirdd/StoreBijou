@@ -1,5 +1,6 @@
 const navLinks = document.querySelector(".navLinks");
 let navChildren = Object.values(navLinks.children);
+navLinks.firstElementChild.classList.add('pushed')
 
 navChildren.forEach((child) => {
     child.addEventListener("click", () => {

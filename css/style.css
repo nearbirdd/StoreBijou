@@ -264,15 +264,15 @@ header {
 
 @media (min-width:1024px) {
     .genderSection {
-        margin-inline: 40px;
+        margin-inline: 2.5%;
     }
 }
 
-@media (max-width: 1920px){
+/* @media (max-width: 1920px){
     .genderSection {
         margin-inline: 12.2%;
     }
-}
+} */
 
 @media (max-width:430px) {
     .genderSection {
