@@ -1,33 +1,15 @@
 //Burger button animation and create burger menu
 const header = document.querySelector("header");
 const headerStore = document.querySelector(".headerStore");
+
+
 document.querySelector(".burger").addEventListener('click', function() {
     this.classList.toggle('active');
 
-    const burgerMenu = document.querySelector(".burgerMenu");
-    if (burgerMenu) {
-        closeMenu(burgerMenu);
-        return;
-    };
-    
-    const copyHeaderStore = headerStore.cloneNode(true);
-    copyHeaderStore.querySelector('img').src = "images/Group17.svg";
-    const wrapperBurgerMenu = document.createElement("div");
-    wrapperBurgerMenu.classList.add("burgerMenu");
-    wrapperBurgerMenu.appendChild(copyHeaderStore);
     header.style.backgroundImage = "none";
     header.style.backgroundColor = "#272727";
     header.querySelector(".mainSection").style.opacity = "0";
-    header.prepend(wrapperBurgerMenu);
-    setTimeout(() => {
-        wrapperBurgerMenu.style.transform = "translateY(0)";
-        wrapperBurgerMenu.style.opacity = "1";
-    }, 1000);
-    
-    const burgerInMenu = wrapperBurgerMenu.querySelector(".burger");
-    burgerInMenu.addEventListener('click', () => {
-        closeMenu(wrapperBurgerMenu);
-    });
+
 });
 
 function closeMenu(menuElement) {
