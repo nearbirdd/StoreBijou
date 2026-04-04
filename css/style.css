@@ -259,7 +259,7 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-inline: 12.2%;
+    margin-inline: 2.5%;
 }
 
 @media (max-width:100%) {
