@@ -4,28 +4,18 @@ const headerStore = document.querySelector(".headerStore");
 
 
 document.querySelector(".burger").addEventListener('click', function() {
-    this.classList.toggle('active');
+    const buttonClick = this.classList.toggle('active');
 
-    header.style.backgroundImage = "none";
-    header.style.backgroundColor = "#272727";
-    header.querySelector(".mainSection").style.opacity = "0";
-
+    if (buttonClick) {
+        header.style.backgroundImage = "none";
+        header.style.backgroundColor = "#272727";
+        header.querySelector(".mainSection").style.opacity = "0";
+    }else {
+        header.style.backgroundImage = "linear-gradient(90deg, white 60%, #272727 40%)";
+        header.style.removeProperty("background-color");
+        header.querySelector(".mainSection").style.opacity = "1";
+    }
 });
-
-function closeMenu(menuElement) {
-    header.style.backgroundImage = "linear-gradient(90deg, white 60%, #272727 40%)";
-    header.style.removeProperty("background-color");
-    header.querySelector(".mainSection").style.opacity = "1";
-    menuElement.style.transform = "translateY(100px)";
-    setTimeout(() => {
-        menuElement.style.transform = "translateY(-100%)";
-    }, 300);
-    setTimeout(() => {
-        menuElement.remove();
-        document.querySelector(".burger").classList.remove("active");
-    }, 550);
-};
-
 
 //miniMap
 function init () {

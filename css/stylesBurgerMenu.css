@@ -6,8 +6,11 @@
     box-sizing: border-box;
 }
 
-body {
+.bodyBurgerMenu {
     background-color: #272727;
+    width: 100%;
+    height: 120vh;
+    display: none;  
 }
 
 .headerStore {
@@ -45,24 +48,24 @@ body {
 }
 
 /*Burger button*/
-.burger {
+.burgerButton {
     display: flex;
     position: relative;
     align-items: center;
     justify-content: flex-end;
     width: 30px;
-    height: 30px;
+    height: 32px;
     margin-right: 10%;
 }
 
-.burger span {
+.burgerButton span {
     height: 2px;
     width: 100%;
     transform: scale(1);
     background-color: #c9c9c9;
 }
 
-.burger::before, .burger::after {
+.burgerButton::before, .burgerButton::after {
     content: '';
     position: absolute;
     height: 2px;
@@ -71,23 +74,23 @@ body {
     transition: all 0.1s ease 0s;
 }
 
-.burger:hover {
+.burgerButton:hover {
     cursor: pointer;
 }
-.burger::before { top: 17%}
-.burger::after {bottom: 15%}
+.burgerButton::before { top: 17%}
+.burgerButton::after {bottom: 15%}
 
-.burger:hover::before {top: 13%;}
-.burger:hover::after {bottom: 10%;}
+.burgerButton:hover::before {top: 12%;}
+.burgerButton:hover::after {bottom: 10%;}
 
-.burger.active span { transform: scale(0);}
+.burgerButton.active span { transform: scale(0);}
 
-.burger.active::before {
+.burgerButton.active::before {
     top: 50%;
     transform: translateY(-50%);
     transform: rotate(45deg);
 }
-.burger.active::after {
+.burgerButton.active::after {
     top: 50%;
     transform: translateY(-50%);
     transform: rotate(-45deg);
@@ -99,7 +102,7 @@ body {
         background-repeat: no-repeat;
     }
     .iconsHeader {margin: 0;}
-    .burger {margin: 10px 0 0 0}
+    .burgerButton {margin: 10px 0 0 0}
     .headerContent {flex-direction: column;}
     .logo {margin: 0px}
 }
@@ -110,7 +113,7 @@ body {
         background-repeat: no-repeat;
     }
     .iconsHeader {margin: 0;}
-    .burger {margin: 10px 0 0 0}
+    .burgerButton {margin: 10px 0 0 0}
     .headerContent {flex-direction: column;}
     .headerContent a {margin-right: 15%;}
     .logo {margin: 0px}
@@ -206,7 +209,7 @@ a.pushed::after {
 
 .linksCategories::after {
     position: absolute;
-    top: 74%;
+    top: 80%;
     left: 4%;
     margin-top: 3%;
     content: '';
@@ -280,7 +283,7 @@ a.pushed::after {
 
 /*Footer burgerMenu*/
 .footerBurger {
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
     margin-left: 13.5%;
     display: flex;
     align-items: center;
@@ -340,23 +343,23 @@ a.pushed::after {
     cursor: pointer;
 }
 
-.informationAbout {
+.informationAboutBurgerMenu {
     display: flex;
     flex-direction: column;
     align-content: start;
     margin-left: 8%;
 }
 
-.contactsHotLine {
+.contactsHotLineBM {
     width: 90%;
     margin-bottom: 10%;
 }
 
 @media (max-width: 430px) {
-    .contactsHotLine {
+    .contactsHotLineBM {
         margin-left: 0px;
     }
-    .logoFooter {
+    .logoFooterBurgerMenu {
         margin-top: 20px;
         margin-bottom: 50px;
     }
@@ -366,7 +369,7 @@ a.pushed::after {
     display: flex;
 }
 
-.contactsHotLine h2 {
+.contactsHotLineBM h2 {
     display: flex;
     font-size: 11px;
     font-weight: lighter;
@@ -375,7 +378,7 @@ a.pushed::after {
     color: white;
 }
 
-.contactsHotLine span{
+.contactsHotLineBM span{
     display: flex;
     width: 200px;
     font-size: 20px;
@@ -385,12 +388,12 @@ a.pushed::after {
     text-decoration: none;
 }
 
-.contactsHotLine i {
+.contactsHotLineBM i {
     display: flex;
     font-size: 35px;
 }
 
-.contactsHotLine a {
+.contactsHotLineBM a {
     width: 50px;
     height: 40px;
     text-decoration: none;
@@ -400,11 +403,11 @@ a.pushed::after {
 }
 
 
-.subscribeNews {
+.subscribeNewsBurgerMenu {
     position: relative;
 }
 
-.subscribeNews input {
+.subscribeNewsBurgerMenu input {
     width: 300px;
     height: 40px;
     border: none;
@@ -414,7 +417,7 @@ a.pushed::after {
     color: white;
 }
 
-.subscribeNews h2 {
+.subscribeNewsBurgerMenu h2 {
     font-size: 11px;
     font-weight: lighter;
     margin-bottom: 20px;
@@ -423,13 +426,13 @@ a.pushed::after {
 }
 
 @media (max-width: 430px) {
-    .subscribeNews h2 {
+    .subscribeNewsBurgerMenu h2 {
         margin-top: 100px;
         margin-bottom: 35px;
     }
 }
 
-.subscribeNews i {
+.subscribeNewsBurgerMenu i {
     position: absolute;
     font-size: 30px;
     top: 56%;
@@ -438,39 +441,39 @@ a.pushed::after {
 }
 
 @media (max-width: 430px) {
-    .subscribeNews i {
+    .subscribeNewsBurgerMenu i {
         top: 56%;
         left: 18.6%;
     }
 }
 
 @media (max-width: 414px) {
-    .subscribeNews i {
+    .subscribeNewsBurgerMenu i {
         top: 80%;
         left: 88%;
     }
 }
 
 @media (max-width: 375px) {
-    .subscribeNews i {
+    .subscribeNewsBurgerMenu i {
         top: 76%;
         left: 88%;
     }
 }
 
 @media (max-width: 375px) {
-    .subscribeNews h2 {
+    .subscribeNewsBurgerMenu h2 {
         margin-top: 30px;
         margin-bottom: 50px;
     }
 }
 
 @media (hover: hover) {
-    .subscribeNews i:hover {
+    .subscribeNewsBurgerMenu i:hover {
         cursor: pointer;
         left: 18.6%;
     }
-    .contactsHotLine i:hover::before {
+    .contactsHotLineBM i:hover::before {
         font-size: 30px;
         color: rgb(241, 175, 88);
         transition: ease 250ms;

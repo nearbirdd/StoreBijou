@@ -58,7 +58,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     width: 30px;
-    height: 30px;
+    height: 35px;
     margin-right: 10%;
 }
 
@@ -777,6 +777,7 @@ header {
 }
 
 .imageInfStore {
+    height: 640px;
     margin-left: 12%;
 }
 
@@ -844,7 +845,7 @@ header {
 /*Footer*/
 footer {
     width: 100%;
-    height: 41vh;
+    height: 41svh;
     background-color: #272727;
 }
 

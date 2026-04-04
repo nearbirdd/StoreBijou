@@ -1,3 +1,7 @@
+document.querySelector(".burgerButton").addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+
 const navLinks = document.querySelector(".navLinks");
 let navChildren = Object.values(navLinks.children);
 navLinks.firstElementChild.classList.add('pushed')
