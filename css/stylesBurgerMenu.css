@@ -339,7 +339,7 @@ a.pushed::after {
 
 .linkToCollection i:hover{
     cursor: pointer;
-    left: 46.5%;
+    left: 94%;
 }
 
 .linkToCollection:hover{
@@ -474,7 +474,7 @@ a.pushed::after {
 @media (hover: hover) {
     .subscribeNewsBurgerMenu i:hover {
         cursor: pointer;
-        left: 18.6%;
+        left: 90%;
     }
     .contactsHotLineBM i:hover::before {
         font-size: 30px;
