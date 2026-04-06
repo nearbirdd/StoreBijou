@@ -10,7 +10,10 @@
     background-color: #272727;
     width: 100%;
     height: 120vh;
-    display: none;  
+    position: absolute;
+    top: -100%;
+    z-index: 1;
+    transition: all 1s ease;
 }
 
 .headerStore {

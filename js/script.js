@@ -1,21 +1,40 @@
 //Burger button animation and create burger menu
 const header = document.querySelector("header");
-const headerStore = document.querySelector(".headerStore");
-
-
+const bodyBurgerMenu = document.querySelector(".bodyBurgerMenu");
+//Open bMenu
 document.querySelector(".burger").addEventListener('click', function() {
-    const buttonClick = this.classList.toggle('active');
-
-    if (buttonClick) {
+        this.classList.add("active");
+        document.querySelector(".burgerButton").classList.add("active");
         header.style.backgroundImage = "none";
         header.style.backgroundColor = "#272727";
         header.querySelector(".mainSection").style.opacity = "0";
-    }else {
-        header.style.backgroundImage = "linear-gradient(90deg, white 60%, #272727 40%)";
-        header.style.removeProperty("background-color");
-        header.querySelector(".mainSection").style.opacity = "1";
-    }
+        bodyBurgerMenu.style.top = '0%';
 });
+//Close bMenu
+document.querySelector(".burgerButton").addEventListener('click', function() {
+    document.querySelector(".burger").classList.remove('active');
+    document.querySelector(".burgerButton").classList.remove('active');
+    header.style.backgroundImage = "linear-gradient(90deg, white 60%, #272727 40%)";
+    header.style.removeProperty("background-color");
+    header.querySelector(".mainSection").style.opacity = "1";
+    bodyBurgerMenu.style.top = '1%';
+    setTimeout(() => {
+        bodyBurgerMenu.style.top = '-100%';
+    },350);
+});
+//Animation in bMenu for categories
+const navLinks = document.querySelector(".navLinks");
+let navChildren = Object.values(navLinks.children);
+navLinks.firstElementChild.classList.add('pushed')
+
+navChildren.forEach((child) => {
+    child.addEventListener("click", () => {
+        navChildren.forEach(el => el.classList.remove('pushed'));
+        child.classList.add('pushed');
+    });
+});
+
+
 
 //miniMap
 function init () {

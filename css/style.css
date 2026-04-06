@@ -9,6 +9,7 @@
 body {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 header {
@@ -259,18 +260,12 @@ header {
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin-inline: 2.5%;
+    margin-inline: 12vw;
 }
 
-@media (max-width:100%) {
+@media (min-resolution: 120dpi) {
     .genderSection {
-        margin-inline: 2.5%;
-    }
-}
-
-@media (max-width:120%) {
-    .genderSection {
-        margin-inline: 2.5%;
+        margin-inline: 2.5vw;
     }
 }
 
