@@ -70,8 +70,8 @@ const images = [
 ];
 
 const slide = document.querySelector(".slide");
-const prevBtn = document.querySelector(".bx-arrow-back");
-const nextBtn = document.querySelector(".bx-flip-horizontal");
+const prevBtn = document.getElementById("prevSlideBtn");
+const nextBtn = document.getElementById("nextSlideBtn");
 
 const setupSlides = () => {
     images.forEach((imageLink) => {
